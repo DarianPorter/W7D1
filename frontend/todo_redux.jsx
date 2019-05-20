@@ -1,17 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../frontend/components/app';
-
-const ToDoList = ()=>{
-    return(
-        <>
-            <App />
-        </> 
-    );
-};
+import store from './store/store';
+import Root from './components/root';
+import allTodos from './reducers/selectors';
 
 document.addEventListener('DOMContentLoaded',() => {
-    ReactDOM.render(<ToDoList />,document.getElementById("root"));
+    window.store = store;
+    window.allTodos = allTodos(store.getState());
+    ReactDOM.render(<Root store={store}/>,document.getElementById("root"));
 });
 
 
