@@ -28,6 +28,7 @@ const todosReducer = (state = initialState, action) =>{
             }
             return newState;
         case RECEIVE_TODO:
+            debugger
             let newSingleState =  merge({},state,{[action.todo.id]: action.todo});
             return newSingleState;
         default:
